@@ -86,6 +86,23 @@ public class Complex {
     }
 
     /**
+     * Cosine of this complex number.
+     * cos(x + iy) = cos(x)cosh(y) - i sin(x)sinh(y)
+     * @return this Complex object, whose value is cos(this)
+     */
+    public Complex cos() {
+        double x = this.re;
+        double y = this.im;
+
+        double real = Math.cos(x) * Math.cosh(y);
+        double imag = -Math.sin(x) * Math.sinh(y);
+
+        this.re = real;
+        this.im = imag;
+        return this;
+    }
+
+    /**
      * Square of Complex object's length, we're using square of length to 
      * eliminate the computation of square root
      * @return square of length
